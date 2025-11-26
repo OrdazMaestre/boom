@@ -38,8 +38,9 @@ startGame().then(number => {
     mensaje = `<h2 class="red">WIN</h2><p>tu número: ${userNumber} el aleatorio: ${number}</p>`
   } else {
     mensaje = `<h2 class="green">LOSE</h2><p>tu número: ${userNumber} el aleatorio: ${number}</p>`
+    document.body.classList.add("shake-screen");// explota la bomba
   }
-  result.innerHTML = mensaje
+  result.innerHTML = mensaje 
 })
 
 
@@ -52,7 +53,7 @@ function count () {
     // }
     countdown.innerHTML = `<p class="blue">Cuenta atrás: ${time} segundos<p>`
     time--
-  }, 1000) // Cafda segundo se ejecuta
+  }, 1000) // Cada segundo se ejecuta
 }
 
 restart.addEventListener("click", () => {

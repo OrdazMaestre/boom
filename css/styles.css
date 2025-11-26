@@ -1,17 +1,117 @@
+/* Fuente épica */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  background: radial-gradient(circle at center, #0a0a0a, #000);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  padding: 40px;
+  user-select: none;
 }
 
-h1 {
-  color: #333;
-}
-#result .green {
-  color: #2ecc71;
+/* Caja principal */
+#gameContainer {
+  width: 400px;
+  margin: auto;
+  padding: 25px;
+  border: 3px solid #ff0000;
+  border-radius: 15px;
+  background: rgba(255, 0, 0, 0.05);
+  box-shadow: 0 0 25px #ff0000aa, inset 0 0 20px #ff000055;
+  animation: pulseBox 2s infinite alternate ease-in-out;
 }
 
-#result .red {
-  color: #e74c3c;
+@keyframes pulseBox {
+  from {
+    box-shadow: 0 0 25px #ff0000aa, inset 0 0 20px #ff000055;
+  }
+  to {
+    box-shadow: 0 0 40px #ff0000ff, inset 0 0 30px #ff000088;
+  }
 }
+
+/* Input */
+#userInput {
+  width: 100px;
+  font-size: 1.4em;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid #00eaff;
+  background: #000;
+  color: #00eaff;
+  box-shadow: 0 0 8px #00eaffaa;
+}
+
+#userInput:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00eaff, 0 0 10px #00eaff inset;
+}
+
+/* Cuenta atrás */
+.blue {
+  color: #00aaff;
+  font-size: 1.5em;
+  text-shadow: 0 0 10px #00aaff, 0 0 20px #0077ff;
+  animation: blink 0.5s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to   { opacity: 0.4; }
+}
+
+/* Resultado: WIN / LOSE */
+.red, .green {
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 3px;
+  padding: 10px;
+}
+
+.red {
+  color: #00ff00;
+  text-shadow: 0 0 15px #00ff00aa, 0 0 30px #00ff00;
+  animation: winPulse 1s infinite alternate;
+}
+
+@keyframes winPulse {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
+
+.green {
+  color: #ff0000;
+  text-shadow: 0 0 15px #ff0000aa, 0 0 30px #ff0000;
+  animation: loseShake 0.3s infinite;
+}
+
+@keyframes loseShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* Botón de reinicio */
+#restart {
+  margin-top: 20px;
+  padding: 12px 22px;
+  background: #ff4444;
+  color: white;
+  border: none;
+  font-size: 1.2em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #ff0000aa;
+  transition: 0.2s;
+}
+
+#restart:hover {
+  background: #ff1111;
+  box-shadow: 0 0 18px #ff0000ff;
+  transform: scale(1.08);
+}
+
